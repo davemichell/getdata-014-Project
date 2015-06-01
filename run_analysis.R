@@ -60,7 +60,7 @@ run_analysis <- function(){
     allMelt <- melt(allData,id=c("User","Activity.Name"),measure.vars=4:69)
 
     ## produce a table summarised by User, then Activity, then all the means
-    outputData  <- dcast(xMelt, User + Activity.Name ~ variable, mean)
+    outputData  <- dcast(allMelt, User + Activity.Name ~ variable, mean)
 
     ## write the data to a file called Tidy_data.txt
     write.table(outputData, file="Tidy_data.txt", quote=FALSE, sep = ",",row.names=FALSE, col.names=TRUE)
